@@ -19,8 +19,11 @@ namespace TFSCommunicationTEST
             Assert.AreEqual(@"c:\projects\TFSUtilConfig.xml",configFileName);
 
             string tfsUri = TFSCommunication.Config.ConfigUtil.TFSUri;
-
             Assert.IsNotNull(tfsUri);
+
+            string projectName = TFSCommunication.Config.ConfigUtil.ProjectName;
+            Assert.IsNotNull(projectName);
+
 
         }
     }

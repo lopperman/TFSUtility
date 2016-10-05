@@ -87,5 +87,22 @@ namespace TFSCommunication
             return areas;
         }
 
+        public WorkItem GetWorkItem(int id)
+        {
+            return GetService<WorkItemStore>().GetWorkItem(id);
+        }
+
+        public List<WorkItemType> GetWorkItemTypes()
+        {
+            return project.WorkItemTypes.Cast<WorkItemType>().ToList();
+        }
+
+        public List<WorkItem> ExecuteWorkItemWIQL(string wiql)
+        {
+            WorkItemStore store = GetService<WorkItemStore>();
+            if (store == null) throw new Exception("Unable to get workitemstore");
+            return store.Query(wiql).Cast<WorkItem>().ToList();
+        }
+
     }
 }

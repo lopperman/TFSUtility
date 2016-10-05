@@ -226,8 +226,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\TfsArea.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Config\ConfigUtil.cs" />
+    <Compile Include="Config\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -12,6 +12,7 @@ namespace TFSCommunication.Config
         private static string _configFilePath = string.Empty;
         private static string _tfsUri = string.Empty;
         private static string _projectName;
+        private static string _mongoConnect;
         private static Configuration _config = null;
 
         public static string ConfigFilePath
@@ -80,6 +81,21 @@ namespace TFSCommunication.Config
                     _projectName = TfsConfiguration.AppSettings.Settings["TFSProjectName"].Value;
                 }
                 return _projectName;
+            }
+        }
+        public static string MongoConnect
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_mongoConnect))
+                {
+                    if (!TfsConfiguration.AppSettings.Settings.AllKeys.ToList().Contains("MongoConnect"))
+                    {
+                        throw new ConfigurationException(string.Format("Configuration file: {0} is missing key and/or value for MongoConnect", ConfigFilePath));
+                    }
+                    _mongoConnect = TfsConfiguration.AppSettings.Settings["MongoConnect"].Value;
+                }
+                return _mongoConnect;
             }
         }
     }

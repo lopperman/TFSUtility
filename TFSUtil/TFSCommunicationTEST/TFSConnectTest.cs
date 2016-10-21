@@ -68,5 +68,6 @@ namespace TFSCommunicationTEST
             List<WorkItem> results = connect.ExecuteWorkItemWIQL(query1);
 
         }
+
     }
 }
